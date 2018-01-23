@@ -18,3 +18,16 @@ p {
 	font-family: sans;
 	font-size: 10px;
 }
+
+.controls {
+	position: relative;
+	left: 820px;
+	width: 200px;
+	height: 200px;
+	color: white;
+}
+
+input[type="text"] {
+	display: block;
+	margin-bottom: 5px;
+}

@@ -2,6 +2,8 @@ const canvas1 = document.getElementById('canvas1');
 const canvas2 = document.getElementById('canvas2');
 const ctx1 = canvas1.getContext('2d');
 const ctx2 = canvas2.getContext('2d');
+const omegaInput = document.getElementById('omega');
+const deltaInput = document.getElementById('delta');
 const pi = Math.PI;
 let iW = iH = 1600;
 canvas1.width = canvas1.height = canvas2.width = canvas2.height = iW;
@@ -83,6 +85,8 @@ function animate() {
 		point.update();
 	});
 
+	omega = parseFloat(omegaInput.value);
+	delta = parseFloat(deltaInput.value);
 }
 
 init();
