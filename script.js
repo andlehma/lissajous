@@ -27,7 +27,6 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 	this.radius = 6;
 	this.color = "#FFFFFF";
 	this.amp = iW / 20;
-	this.rateAmp = rate;
 	this.x = this.amp * Math.sin(this.o) + this.centerX;
 	this.y = this.amp * Math.sin(this.d) + this.centerY;
 
@@ -36,8 +35,8 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 		this.lastY = this.y;
 		this.x = this.amp * Math.sin(this.o) + this.centerX;
 		this.y = this.amp * Math.sin(this.d) + this.centerY;
-		this.o += this.rateAmp/(this.xRate * 100);
-		this.d += this.rateAmp/(this.yRate * 100);
+		this.o += rate/(this.xRate * 100);
+		this.d += rate/(this.yRate * 100);
 		//draw the lines on canvas2
 		ctx2.lineWidth = 1;
 		ctx2.strokeStyle = "#FFFFFF";
@@ -74,7 +73,7 @@ let points;
 function init() {
 	//clear old lines
 	ctx2.clearRect(0, 0, iW, iH);
-	//fill points array with 64 point
+	//fill points array with 64 points
 	points = [];
 	for (let x = 0; x < 8; x++){
 		for(let y = 0; y < 8; y++){

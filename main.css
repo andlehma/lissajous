@@ -73,7 +73,8 @@ input[type="text"] {
 button {
 	background-color:white;
 	border: 1px solid darkgray;
-	padding: 6px 6px;
+	padding: 6px;
+	margin: 5px 0;
 }
 
 #description {
