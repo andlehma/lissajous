@@ -4,7 +4,7 @@ $(document).ready(function(){
 		$('#hover').append('<div class="hover-row" id="' + x + '"></div>');
 		for (let y = 0; y < 8; y++){
 			$('.hover-row').last().append(
-				'<div class="hover-square"><p><strong>ω: ' + (x + 1) + '<br>δ: ' + (y + 1) + '</strong></p></div>'
+				'<div class="hover-square"><p>ω: ' + (x + 1) + '<br>δ: ' + (y + 1) + '</p></div>'
 			);
 		}
 	}

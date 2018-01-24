@@ -90,8 +90,8 @@ function animate() {
 		point.update();
 	});
 
-	omega = parseFloat(omegaInput.value);
-	delta = parseFloat(deltaInput.value);
+	omega = parseFloat(omegaInput.value * pi / 180);
+	delta = parseFloat(deltaInput.value * pi / 180);
 }
 
 init();

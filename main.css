@@ -37,11 +37,16 @@ body {
 	height: 12.5vh;
 }
 
+.hover-square:hover {
+	background-color: rgba(0, 0, 0, .5);
+}
+
 .hover-square p {
 	display: none;
 	margin: auto;
 	text-align: center;
 	vertical-align: middle;
+	user-select: none;
 }
 
 .hover-square:hover p {
@@ -58,4 +63,5 @@ canvas {
 input[type="text"] {
 	display: block;
 	margin-bottom: 5px;
+	width: 5em;
 }

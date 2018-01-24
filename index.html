@@ -15,15 +15,16 @@
 			</div>
 			<div id="sidebar">
 				<div class="controls">
-					<label for="omega">starting x position:</label>
-					<input type="text" id="omega" value="1.57079632679">
-					<label for="delta">starting y position:</label>
-					<input type="text" id="delta" value="3.14159265359">
+					<label for="omega">starting x position (degrees):</label>
+					<input type="text" id="omega" value="90">
+					<label for="delta">starting y position (degrees):</label>
+					<input type="text" id="delta" value="180">
 					<button onclick="init()">update</button>
 				</div>
 				<p>
 					These curves are modeled by the function <br>
-					X = A * sin(ω)  Y = A * sin(δ)
+					X = A * sin(ω)  Y = A * sin(δ)<br><br>
+					Hover over a curve to see its input values.
 				</p>
 			</div>
 		</div>
