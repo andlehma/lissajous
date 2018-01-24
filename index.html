@@ -7,15 +7,28 @@
 		<link type="text/css" rel="stylesheet" href="main.css">
 	</head>
 	<body>
-		<canvas id="canvas1"></canvas>
-		<canvas id="canvas2"></canvas>
-		<div class="controls">
-			<label for="omega">starting x position:</label>
-			<input type="text" id="omega" value="1.57079632679">
-			<label for="delta">starting y position:</label>
-			<input type="text" id="delta" value="3.14159265359">
-			<button onclick="init()">update</button>
-		</form>
+		<div id="container">
+			<div id="hover"></div>
+			<div id="canvases">
+				<canvas id="canvas1"></canvas>
+				<canvas id="canvas2"></canvas>
+			</div>
+			<div id="sidebar">
+				<div class="controls">
+					<label for="omega">starting x position:</label>
+					<input type="text" id="omega" value="1.57079632679">
+					<label for="delta">starting y position:</label>
+					<input type="text" id="delta" value="3.14159265359">
+					<button onclick="init()">update</button>
+				</div>
+				<p>
+					These curves are modeled by the function <br>
+					X = A * sin(ω)  Y = A * sin(δ)
+				</p>
+			</div>
+		</div>
 		<script src="script.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="hover.js"></script>
 	</body>
 </html>

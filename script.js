@@ -22,7 +22,7 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 	this.yRate = yRate;
 	this.o = omega;
 	this.d = delta; //pull from global vars
-	this.radius = 4;
+	this.radius = 6;
 	this.color = "#FFFFFF";
 	this.amp = iW / 20;
 	this.rateAmp = 10;
@@ -30,13 +30,13 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 	this.y = this.amp * Math.sin(this.d) + this.centerY;
 
 	this.update = function(){
-		//draw the lines on canvas2
 		this.lastX = this.x;
 		this.lastY = this.y;
 		this.x = this.amp * Math.sin(this.o) + this.centerX;
 		this.y = this.amp * Math.sin(this.d) + this.centerY;
 		this.o += 1/(this.xRate * this.rateAmp);;
 		this.d += 1/(this.yRate * this.rateAmp);;
+		//draw the lines on canvas2
 		ctx2.lineWidth = 1;
 		ctx2.strokeStyle = "#FFFFFF";
 		ctx2.moveTo(this.lastX, this.lastY);
