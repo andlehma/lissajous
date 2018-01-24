@@ -53,7 +53,7 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 		//draw the dots on canvas1
 		ctx1.beginPath();
 		ctx1.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-		ctx1.fillStyle = this.color;
+		ctx1.fillStyle = color;
 		ctx1.fill();
 		ctx1.closePath();
 
@@ -73,7 +73,6 @@ function init() {
 	//clear old lines
 	ctx2.clearRect(0, 0, iW, iH);
 	//set color from jscolor input
-	color = '#' + colorInput.value;
 	//fill points array with 64 points
 	points = [];
 	for (let x = 0; x < 8; x++){
@@ -102,6 +101,8 @@ function animate() {
 	omega = parseFloat(omegaInput.value * pi / 180);
 	delta = parseFloat(deltaInput.value * pi / 180);
 	rate = parseFloat(rateInput.value);
+	color = '#' + colorInput.value;
+	document.querySelector('body').style.color = color;
 }
 
 init();
