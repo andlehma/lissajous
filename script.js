@@ -7,7 +7,8 @@ const omegaInput = document.getElementById('omega');
 const deltaInput = document.getElementById('delta');
 const rateInput = document.getElementById('rate');
 const pi = Math.PI;
-let iW = iH = 1600;
+let iW = 1600;
+let iH = iW;
 canvas1.width = canvas1.height = canvas2.width = canvas2.height = iW;
 let centerX = iW / 2;
 let centerY = iH / 2;
@@ -58,12 +59,8 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 		if (this.yLine || this.xLine){
 			ctx1.strokeStyle = "#808080";
 			ctx1.beginPath();
-			yLine ?
-				ctx1.moveTo(this.x, 0)
-				: ctx1.moveTo(0, this.y);
-			yLine ?
-				ctx1.lineTo(this.x, iH)
-				: ctx1.lineTo(iW, this.y);
+			yLine ? ctx1.moveTo(this.x, 0) : ctx1.moveTo(0, this.y);
+			yLine ? ctx1.lineTo(this.x, iH) : ctx1.lineTo(iW, this.y);
 			ctx1.stroke();
 		}
 	};
@@ -77,7 +74,14 @@ function init() {
 	points = [];
 	for (let x = 0; x < 8; x++){
 		for(let y = 0; y < 8; y++){
-			points.push(new point(x * (iW / 8) + (iW / 16), y * (iH / 8) + (iH / 16), x + 1, y + 1, x == 0, y == 0));
+			points.push(new point(
+				x * (iW / 8) + (iW / 16), //x position
+				y * (iH / 8) + (iH / 16), //y position
+				x + 1, //x rate
+				y + 1, //y rate
+				x === 0, //bool for xLine
+				y === 0 //bool for yLine
+			));
 		}
 	}
 }
