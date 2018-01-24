@@ -3,8 +3,8 @@ const canvas1 = document.getElementById('canvas1');
 const canvas2 = document.getElementById('canvas2');
 const ctx1 = canvas1.getContext('2d');
 const ctx2 = canvas2.getContext('2d');
-const omegaInput = document.getElementById('omega');
-const deltaInput = document.getElementById('delta');
+const xOffsetInput = document.getElementById('x-offset');
+const yOffsetInput = document.getElementById('y-offset');
 const rateInput = document.getElementById('rate');
 const colorInput = document.getElementById('color');
 const pi = Math.PI;
@@ -32,6 +32,8 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 	this.amp = iW / 20;
 	this.x = this.amp * Math.sin(this.o) + this.centerX;
 	this.y = this.amp * Math.sin(this.d) + this.centerY;
+	this.ctx1 = ctx1;
+	this.ctx2 = ctx2;
 
 	this.update = function(){
 		this.lastX = this.x;
@@ -41,29 +43,28 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 		this.o += rate/(this.xRate * 100);
 		this.d += rate/(this.yRate * 100);
 		//draw the lines on canvas2
-		ctx2.lineWidth = 1;
-		ctx2.strokeStyle = color;
-		ctx2.moveTo(this.lastX, this.lastY);
-		ctx2.lineTo(this.x, this.y);
-		ctx2.stroke();
+		this.ctx2.strokeStyle = color;
+		this.ctx2.moveTo(this.lastX, this.lastY);
+		this.ctx2.lineTo(this.x, this.y);
+		this.ctx2.stroke();
 		this.draw();
 	};
 
 	this.draw = function(){
 		//draw the dots on canvas1
-		ctx1.beginPath();
-		ctx1.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-		ctx1.fillStyle = color;
-		ctx1.fill();
-		ctx1.closePath();
+		this.ctx1.beginPath();
+		this.ctx1.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+		this.ctx1.fillStyle = color;
+		this.ctx1.fill();
+		this.ctx1.closePath();
 
 		//gray lines only on first row & first column
 		if (this.yLine || this.xLine){
-			ctx1.strokeStyle = "#808080";
-			ctx1.beginPath();
-			yLine ? ctx1.moveTo(this.x, 0) : ctx1.moveTo(0, this.y);
-			yLine ? ctx1.lineTo(this.x, iH) : ctx1.lineTo(iW, this.y);
-			ctx1.stroke();
+			this.ctx1.strokeStyle = "#808080";
+			this.ctx1.beginPath();
+			yLine ? this.ctx1.moveTo(this.x, 0) : this.ctx1.moveTo(0, this.y);
+			yLine ? this.ctx1.lineTo(this.x, iH) : this.ctx1.lineTo(iW, this.y);
+			this.ctx1.stroke();
 		}
 	};
 }
@@ -93,13 +94,14 @@ function animate() {
 	requestAnimationFrame(animate);
 	ctx1.clearRect(0, 0, iW, iH); //only clear canvas1
 
+	ctx2.lineWidth = 1;
 	ctx2.beginPath(); //ouside the loop for performance reasons
 	points.forEach(point => {
 		point.update();
 	});
 
-	omega = parseFloat(omegaInput.value * pi / 180);
-	delta = parseFloat(deltaInput.value * pi / 180);
+	omega = parseFloat(xOffsetInput.value * pi / 180);
+	delta = parseFloat(yOffsetInput.value * pi / 180);
 	rate = parseFloat(rateInput.value);
 	color = '#' + colorInput.value;
 	document.querySelector('body').style.color = color;

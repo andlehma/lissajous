@@ -60,9 +60,6 @@ body {
 	width: 100vh;
 }
 
-#sidebar{
-}
-
 .controls {
 	font-size: 15px;
 }
@@ -89,12 +86,13 @@ button {
 	font-size: 20px;
 }
 
-footer {
-	position: absolute;
-	bottom: 10px;
-	font-size: 13px;
-}
-
 a, a:visited, a:hover, a:active {
 	color: inherit;
+}
+
+#single1, #single2 {
+	position:absolute;
+	width: 30vh;
+	height: 30vh;
+	margin-top: 10px;
 }

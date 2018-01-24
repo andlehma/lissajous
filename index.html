@@ -15,10 +15,10 @@
 			</div>
 			<div id="sidebar">
 				<div class="controls">
-					<label for="omega">starting x position (degrees):</label>
-					<input type="text" id="omega" value="90">
-					<label for="delta">starting y position (degrees):</label>
-					<input type="text" id="delta" value="180">
+					<label for="x-offset">starting x position (degrees):</label>
+					<input type="text" id="x-offset" value="90">
+					<label for="y-offset">starting y position (degrees):</label>
+					<input type="text" id="y-offset" value="180">
 					<label for="color">color:</label><br>
 					<input class="jscolor" id="color" name="color" value="FFFFFF"><br>
 					<button onclick="init()">update</button><br>
@@ -29,21 +29,30 @@
 					These curves are modeled by the function <br>
 					X = A * sin(ω)<br>Y = A * sin(δ)<br><br>
 					Hover over a curve to see its input values.<br>
-					Experiment with the phase shift using the controls above.<br><br>
+					Experiment with the phase shift using the controls above.<br>
+					Experiment with the ω and δ on the curve below.<br><br>
 					More information about Lissajous curves:<br>
 					<a href="https://en.wikipedia.org/wiki/Lissajous_curve">Wikipedia</a><br>
-					<a href="http://mathworld.wolfram.com/LissajousCurve.html">Wolfram MathWorld</a>
+					<a href="http://mathworld.wolfram.com/LissajousCurve.html">Wolfram MathWorld</a><br><br>
+					<a href="https://github.com/andlehma/lissajous">Check this project out on github</a>
 				</p>
-				<footer>
-					<a href="https://github.com/andlehma/lissajous">
-						Check this project out on github
-					</a>
-				</footer>
+				<div id="small-container">
+					<div id="small-controls">
+						<label for="omega">ω</label>
+						<input type="text" name="omega" id="omega" value="1">
+						<label for="delta">δ</label>
+						<input type="text" name="delta" id="delta" value="2">
+						<button onclick="init2()">update</button>
+					</div>
+					<canvas id="single1"></canvas>
+					<canvas id="single2"></canvas>
+				</div>
 			</div>
 		</div>
 		<script src="script.js"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script src="hover.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.js"></script>
+		<script src="single.js"></script>
 	</body>
 </html>
