@@ -6,6 +6,7 @@ const ctx2 = canvas2.getContext('2d');
 const omegaInput = document.getElementById('omega');
 const deltaInput = document.getElementById('delta');
 const rateInput = document.getElementById('rate');
+const colorInput = document.getElementById('color');
 const pi = Math.PI;
 let iW = 1600;
 let iH = iW;
@@ -15,6 +16,7 @@ let centerY = iH / 2;
 let omega = pi/2;
 let delta = pi;
 let rate = 10;
+let color = "#FFFFFF"
 
 function point(x, y, xRate, yRate, xLine, yLine) {
 	this.centerX = x;
@@ -26,7 +28,7 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 	this.o = omega;
 	this.d = delta; //pull from global vars
 	this.radius = 6;
-	this.color = "#FFFFFF";
+	this.color = color;
 	this.amp = iW / 20;
 	this.x = this.amp * Math.sin(this.o) + this.centerX;
 	this.y = this.amp * Math.sin(this.d) + this.centerY;
@@ -40,7 +42,7 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 		this.d += rate/(this.yRate * 100);
 		//draw the lines on canvas2
 		ctx2.lineWidth = 1;
-		ctx2.strokeStyle = "#FFFFFF";
+		ctx2.strokeStyle = color;
 		ctx2.moveTo(this.lastX, this.lastY);
 		ctx2.lineTo(this.x, this.y);
 		ctx2.stroke();
@@ -70,6 +72,8 @@ let points;
 function init() {
 	//clear old lines
 	ctx2.clearRect(0, 0, iW, iH);
+	//set color from jscolor input
+	color = '#' + colorInput.value;
 	//fill points array with 64 points
 	points = [];
 	for (let x = 0; x < 8; x++){

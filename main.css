@@ -53,11 +53,14 @@ body {
 	display: table-cell;
 }
 
-canvas {
+#canvas1, #canvas2 {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100vh;
+}
+
+#sidebar{
 }
 
 .controls {
@@ -70,6 +73,10 @@ input[type="text"] {
 	width: 5em;
 }
 
+#color {
+	width: 6em;
+}
+
 button {
 	background-color:white;
 	border: 1px solid darkgray;
@@ -78,6 +85,7 @@ button {
 }
 
 #description {
+	width: 60vh;
 	font-size: 20px;
 }
 
