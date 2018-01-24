@@ -60,8 +60,32 @@ canvas {
 	width: 100vh;
 }
 
+.controls {
+	font-size: 15px;
+}
+
 input[type="text"] {
 	display: block;
 	margin-bottom: 5px;
 	width: 5em;
+}
+
+button {
+	background-color:white;
+	border: 1px solid darkgray;
+	padding: 6px 6px;
+}
+
+#description {
+	font-size: 20px;
+}
+
+footer {
+	position: absolute;
+	bottom: 10px;
+	font-size: 13px;
+}
+
+a, a:visited, a:hover, a:active {
+	color: white;
 }

@@ -19,13 +19,24 @@
 					<input type="text" id="omega" value="90">
 					<label for="delta">starting y position (degrees):</label>
 					<input type="text" id="delta" value="180">
+					<label for="rate">rate:</label><br>
+					<input type="range" id="rate" min="1" max="50" value="10"><br>
 					<button onclick="init()">update</button>
 				</div>
-				<p>
+				<p id="description">
 					These curves are modeled by the function <br>
-					X = A * sin(ω)  Y = A * sin(δ)<br><br>
-					Hover over a curve to see its input values.
+					X = A * sin(ω)<br>Y = A * sin(δ)<br><br>
+					Hover over a curve to see its input values.<br>
+					Experiment with the phase shift using the controls above.<br><br>
+					More information about Lissajous curves:<br>
+					<a href="https://en.wikipedia.org/wiki/Lissajous_curve">Wikipedia</a><br>
+					<a href="http://mathworld.wolfram.com/LissajousCurve.html">Wolfram MathWorld</a>
 				</p>
+				<footer>
+					<a href="https://github.com/andlehma/lissajous">
+						Check this project out on github
+					</a>
+				</footer>
 			</div>
 		</div>
 		<script src="script.js"></script>

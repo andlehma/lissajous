@@ -5,6 +5,7 @@ const ctx1 = canvas1.getContext('2d');
 const ctx2 = canvas2.getContext('2d');
 const omegaInput = document.getElementById('omega');
 const deltaInput = document.getElementById('delta');
+const rateInput = document.getElementById('rate');
 const pi = Math.PI;
 let iW = iH = 1600;
 canvas1.width = canvas1.height = canvas2.width = canvas2.height = iW;
@@ -12,6 +13,7 @@ let centerX = iW / 2;
 let centerY = iH / 2;
 let omega = pi/2;
 let delta = pi;
+let rate = 10;
 
 function point(x, y, xRate, yRate, xLine, yLine) {
 	this.centerX = x;
@@ -25,7 +27,7 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 	this.radius = 6;
 	this.color = "#FFFFFF";
 	this.amp = iW / 20;
-	this.rateAmp = 10;
+	this.rateAmp = rate;
 	this.x = this.amp * Math.sin(this.o) + this.centerX;
 	this.y = this.amp * Math.sin(this.d) + this.centerY;
 
@@ -34,8 +36,8 @@ function point(x, y, xRate, yRate, xLine, yLine) {
 		this.lastY = this.y;
 		this.x = this.amp * Math.sin(this.o) + this.centerX;
 		this.y = this.amp * Math.sin(this.d) + this.centerY;
-		this.o += 1/(this.xRate * this.rateAmp);;
-		this.d += 1/(this.yRate * this.rateAmp);;
+		this.o += this.rateAmp/(this.xRate * 100);
+		this.d += this.rateAmp/(this.yRate * 100);
 		//draw the lines on canvas2
 		ctx2.lineWidth = 1;
 		ctx2.strokeStyle = "#FFFFFF";
@@ -92,6 +94,7 @@ function animate() {
 
 	omega = parseFloat(omegaInput.value * pi / 180);
 	delta = parseFloat(deltaInput.value * pi / 180);
+	rate = parseFloat(rateInput.value);
 }
 
 init();
