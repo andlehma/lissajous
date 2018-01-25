@@ -60,6 +60,11 @@ body {
 	width: 100vh;
 }
 
+h1 {
+	margin: 2px;
+	font-size:1em;
+}
+
 .controls {
 	font-size: 15px;
 }
@@ -90,8 +95,12 @@ a, a:visited, a:hover, a:active {
 	color: inherit;
 }
 
-#single1, #single2 {
+#single2 {
 	position:absolute;
+	left:100vh;
+}
+
+#single1, #single2 {
 	width: 30vh;
 	height: 30vh;
 	margin-top: 10px;

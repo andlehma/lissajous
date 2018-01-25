@@ -14,6 +14,7 @@
 				<canvas id="canvas2"></canvas>
 			</div>
 			<div id="sidebar">
+				<h1>Global Controls</h1>
 				<div class="controls">
 					<label for="x-offset">starting x position (degrees):</label>
 					<input type="text" id="x-offset" value="90">
@@ -21,21 +22,12 @@
 					<input type="text" id="y-offset" value="180">
 					<label for="color">color:</label><br>
 					<input class="jscolor" id="color" name="color" value="FFFFFF"><br>
-					<button onclick="init()">update</button><br>
+					<button onclick="init();init2()">update</button><br>
 					<label for="rate">rate:</label><br>
 					<input type="range" id="rate" min="1" max="50" value="10">
 				</div>
-				<p id="description">
-					These curves are modeled by the function <br>
-					X = A * sin(ω)<br>Y = A * sin(δ)<br><br>
-					Hover over a curve to see its input values.<br>
-					Experiment with the phase shift using the controls above.<br>
-					Experiment with the ω and δ on the curve below.<br><br>
-					More information about Lissajous curves:<br>
-					<a href="https://en.wikipedia.org/wiki/Lissajous_curve">Wikipedia</a><br>
-					<a href="http://mathworld.wolfram.com/LissajousCurve.html">Wolfram MathWorld</a><br><br>
-					<a href="https://github.com/andlehma/lissajous">Check this project out on github</a>
-				</p>
+				<hr>
+				<h1>Individual Curve Controls</h1>
 				<div id="small-container">
 					<div id="small-controls">
 						<label for="omega">ω</label>
@@ -47,6 +39,18 @@
 					<canvas id="single1"></canvas>
 					<canvas id="single2"></canvas>
 				</div>
+				<hr>
+				<p id="description">
+					These curves are modeled by the function <br>
+					X = A * sin(ω)<br>Y = A * sin(δ)<br><br>
+					Hover over a curve to see its input values.<br>
+					Experiment with the phase shift using the controls above.<br>
+					Experiment with the ω and δ on the curve below.<br><br>
+					More information about Lissajous curves:<br>
+					<a href="https://en.wikipedia.org/wiki/Lissajous_curve">Wikipedia</a><br>
+					<a href="http://mathworld.wolfram.com/LissajousCurve.html">Wolfram MathWorld</a><br><br>
+					<a href="https://github.com/andlehma/lissajous">Check this project out on github</a>
+				</p>
 			</div>
 		</div>
 		<script src="script.js"></script>
